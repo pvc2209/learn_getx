@@ -1,46 +1,23 @@
 // https://youtu.be/U-NwBfgpX8k
+// https://youtu.be/oOf88VUb2rU
 // Xịn sò con bò :)
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'home_page.dart';
+
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  var count = 0.obs;
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print("rebuild to");
-
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Getx Simple"),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Obx(
-            () {
-              print("rebuild obx");
-              return Text(
-                "$count",
-                style: TextStyle(fontSize: 50),
-              );
-            },
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            count++;
-          },
-          child: Icon(Icons.add),
-        ),
-      ),
+    return GetMaterialApp(
+      home: HomePage(),
     );
   }
 }
